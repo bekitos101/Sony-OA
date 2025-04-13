@@ -1,0 +1,13 @@
+# Byte-compiled / virtual environment
+__pycache__/
+*.py[cod]
+venv/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# macOS & system files
+.DS_Store
+
+# Environment files
+.env
