@@ -8,12 +8,11 @@ def extract_product_urls():
         page = browser.new_page()
         page.goto(base_url)
 
-        # Wait for at least one product tile by text
         page.wait_for_selector("text=Headphones", timeout=10000)
 
         print("Page loaded:", page.title())
 
-        # Try to find anchors inside rendered product cards
+        # Find anchors for product pages
         anchors = page.query_selector_all("a[href^='/store/product/']")
         print(f"Found {len(anchors)} product links")
 
@@ -26,7 +25,10 @@ def extract_product_urls():
                 product_urls.append(full_url)
 
         browser.close()
-        return product_urls
+
+        # Deduplicate
+        unique_urls = list(set(product_urls))
+        return unique_urls
 
 if __name__ == "__main__":
     urls = extract_product_urls()
