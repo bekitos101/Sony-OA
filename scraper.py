@@ -1,7 +1,7 @@
 
 from scraper_utils import get_all_product_urls, scrape_product_details
 from playwright.sync_api import sync_playwright
-import csv
+import csv 
 
 if __name__ == "__main__":
     all_product_urls = get_all_product_urls()

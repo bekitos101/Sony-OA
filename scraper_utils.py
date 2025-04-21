@@ -49,9 +49,9 @@ def get_all_product_urls():
 
 def scrape_product_details(page, url):
     try:
-        page.goto(url, timeout=20000)
-        page.wait_for_load_state("networkidle")
-
+        page.goto(url, timeout=40000)
+        page.wait_for_selector("h1", timeout=10000)
+        
         #product name
         name = page.locator("h1").first.inner_text().strip()
 
